@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Self-Check Kiosk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="logo"><span class="bow-icon" aria-hidden="true">🎀</span> Health Self-Check Kiosk</span>
+      <p class="tagline">quick, private &amp; sweet BMI check-ins</p>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <section class="form-section" aria-labelledby="form-heading">
+      <div class="card form-card">
+        <h1 id="form-heading">Check Your BMI</h1>
+        <p class="subtitle">Fill in your details below. All fields are required.</p>
+
+        <form id="bmiForm" novalidate>
+
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" required>
+            <span class="error-msg" id="err-name"></span>
+          </div>
+
+          <div class="field">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="1" max="120" placeholder="e.g. 21" required>
+            <span class="error-msg" id="err-age"></span>
+          </div>
+
+          <div class="field">
+            <label for="sex">Sex</label>
+            <select id="sex" name="sex" required>
+              <option value="">Select</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+            </select>
+            <span class="error-msg" id="err-sex"></span>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="weight">Weight (kg)</label>
+              <input type="number" id="weight" name="weight" min="1" step="0.1" placeholder="e.g. 60" required>
+              <span class="error-msg" id="err-weight"></span>
+            </div>
+
+            <div class="field">
+              <label for="height">Height (cm)</label>
+              <input type="number" id="height" name="height" min="1" step="0.1" placeholder="e.g. 165" required>
+              <span class="error-msg" id="err-height"></span>
+            </div>
+          </div>
+
+          <div class="field checkbox-field">
+            <label class="checkbox-label">
+              <input type="checkbox" id="consent" required>
+              I consent to my submission being recorded for wellness monitoring.
+            </label>
+            <span class="error-msg" id="err-consent"></span>
+          </div>
+
+          <button type="submit" class="btn-submit">Check My BMI</button>
+        </form>
+      </div>
+
+      <div id="resultCard" class="card result-card hidden" role="status" aria-live="polite">
+        <h2 id="resultCategory"></h2>
+        <p class="bmi-value" id="resultBMI"></p>
+        <p id="resultMessage"></p>
+        <button type="button" id="resetBtn" class="btn-secondary">Check Another</button>
+      </div>
+    </section>
+
+    <div class="ribbon-divider" aria-hidden="true">
+      <span></span><span class="bow-icon">🎀</span><span></span>
+    </div>
+
+    <section class="history-section" aria-labelledby="history-heading">
+      <div class="card">
+        <h2 id="history-heading">Recent Submissions <span class="bow-icon" aria-hidden="true">🎀</span></h2>
+        <ul id="historyList" class="history-list">
+          <li class="empty-state">No submissions yet.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 De La Salle University - Dasmariñas | For wellness screening purposes only, not a medical diagnosis.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
